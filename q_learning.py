@@ -1,5 +1,4 @@
 import json
-import random
 
 
 class QLearning:
@@ -9,6 +8,7 @@ class QLearning:
     Load the Q-Learning agent Q-table (data/q_values.json) and training states (data/training_values.json) from file .
     To train a new agent specify new file names to load and save to.
     """
+
     def __init__(self, train):
         """
         Initialise the agent
@@ -229,5 +229,5 @@ class QLearning:
             """Save current training state to json file."""
             print(f"Saving training states with {self.episode} episodes to file...")
             with open("data/training_values_resume.json", "w") as f:
-                json.dump({'episodes': [i+1 for i in range(self.episode)],
+                json.dump({'episodes': [i + 1 for i in range(self.episode)],
                            'scores': self.scores}, f)

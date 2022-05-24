@@ -5,6 +5,7 @@ import random
 import sys
 import pygame
 from pygame.locals import *
+from pprint import pprint
 
 # Initialize Q-learning agent
 
@@ -21,7 +22,7 @@ else:
 
 # Back to game
 
-FPS = 30
+FPS = 1000000
 SCREENWIDTH = 288
 SCREENHEIGHT = 512
 # amount by which base can maximum shift to left
