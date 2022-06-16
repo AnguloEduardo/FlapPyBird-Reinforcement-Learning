@@ -43,6 +43,6 @@ def plot_performance(agent_states: Dict[str, List], window=50, xlim=None, ylim=N
 
 
 if __name__ == '__main__':
-    filename = 'validation_resume'
+    filename = 'training_values_resume'
     agent_performance = load_data(filename)
-    plot_performance(agent_performance, window=3, logy=True)
+    plot_performance(agent_performance, window=10, logy=True)

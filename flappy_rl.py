@@ -19,10 +19,9 @@ if Agent.train:
 else:
     print("Running agent...")
 
-
 # Back to game
 
-FPS = 1000000
+FPS = 1000000000000000
 SCREENWIDTH = 288
 SCREENHEIGHT = 512
 # amount by which base can maximum shift to left
@@ -104,16 +103,16 @@ def main():
     # --- TURN OFF SOUNDS ---
 
     # # sounds
-    # if 'win' in sys.platform:
-    #     soundExt = '.wav'
-    # else:
-    #     soundExt = '.ogg'
+    if 'win' in sys.platform:
+        soundExt = '.wav'
+    else:
+        soundExt = '.ogg'
     #
-    # SOUNDS['die']    = pygame.mixer.Sound('assets/audio/die' + soundExt)
-    # SOUNDS['hit']    = pygame.mixer.Sound('assets/audio/hit' + soundExt)
-    # SOUNDS['point']  = pygame.mixer.Sound('assets/audio/point' + soundExt)
-    # SOUNDS['swoosh'] = pygame.mixer.Sound('assets/audio/swoosh' + soundExt)
-    # SOUNDS['wing']   = pygame.mixer.Sound('assets/audio/wing' + soundExt)
+    SOUNDS['die'] = pygame.mixer.Sound('assets/audio/die' + soundExt)
+    SOUNDS['hit'] = pygame.mixer.Sound('assets/audio/hit' + soundExt)
+    SOUNDS['point'] = pygame.mixer.Sound('assets/audio/point' + soundExt)
+    SOUNDS['swoosh'] = pygame.mixer.Sound('assets/audio/swoosh' + soundExt)
+    SOUNDS['wing'] = pygame.mixer.Sound('assets/audio/wing' + soundExt)
 
     while True:
         # select random background sprites
@@ -154,7 +153,6 @@ def main():
 
 
 def showWelcomeAnimation():
-
     # --- TURN OFF WELCOME ANIMATION ---
 
     # """Shows welcome screen animation of flappy bird"""
@@ -218,7 +216,6 @@ def showWelcomeAnimation():
 
 
 def mainGame(movementInfo):
-
     # --- REMOVE ANGULAR MOVEMENT AND SOUNDS ---
 
     score = playerIndex = loopIter = 0
@@ -280,8 +277,8 @@ def mainGame(movementInfo):
         else:
             # Save game history for resuming
             if Agent.train and config['resume_score'] and score >= config['resume_score']:  # only save if training
-                    STATE_HISTORY.append([playerx, playery, playerVelY, copy.deepcopy(lowerPipes),
-                                          copy.deepcopy(upperPipes), score, playerIndex])
+                STATE_HISTORY.append([playerx, playery, playerVelY, copy.deepcopy(lowerPipes),
+                                      copy.deepcopy(upperPipes), score, playerIndex])
 
         for event in pygame.event.get():
             if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
